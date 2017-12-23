@@ -48,8 +48,6 @@ After that, you should be good to go :)
 │   │   └── favicon.ico
 │   ├── js/
 │   │   └── *.js
-├── includes/
-│   ├── _*.pug
 ├── Gruntfile.js
 ├── index.html
 ├── index.pug
