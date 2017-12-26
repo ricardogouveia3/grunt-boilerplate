@@ -66,6 +66,7 @@ These structure will change during the project.
 - `grunt uglify`: uglifies raw.js file into index.min.js
 - `grunt concat`: concat index.min,js into index.js
 - `grunt sass`: build [everything].sass into style.css
+- `grunt autoprefixer`: adds vendor prefixes to style.css
 - `grunt watch`: call for watch files
 
 - `grunt`: run all default tasks continuously; start local server
