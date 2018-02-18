@@ -40,16 +40,13 @@ After that, you should be good to go :)
 ├── assets/
 │   ├── css/
 │   │   └── *.sass
-│   │   └── *.css
-│   ├── img
-│   │   └── *.png
-│   │   └── *.jpg
-│   │   └── *.svg
-│   │   └── favicon.ico
+│   ├── img/
 │   ├── js/
-│   │   └── *.js
+│   │   ├── modules/
+│   │   └── index.min.js
+├── includes/
+│   └── *.pug
 ├── Gruntfile.js
-├── index.html
 ├── index.pug
 ├── package.json
 ├── README.md
@@ -63,13 +60,18 @@ These structure will change during the project.
 
 ### Tasks
 
-- `grunt uglify`: uglifies raw.js file into index.min.js
-- `grunt concat`: concat index.min,js into index.js
+- `grunt concat`: concat `modules/*.js` into `index.min.js`
+- `grunt uglify`: uglifies `index.min.js` into itself
+
 - `grunt sass`: build [everything].sass into style.css
 - `grunt autoprefixer`: adds vendor prefixes to style.css
-- `grunt watch`: call for watch files
 
-- `grunt`: run all default tasks continuously; start local server
+- `grunt imagemin`: optimize `*.jpg`,`*.png`,`*.svg` inside `assets/img`
+
+- `grunt pug`: generates `index.html` from `index.pug` + `includes/*.pug`
+
+- `grunt compile`: run concat, uglify, sass, autoprefixer, imagemin, pug; does *not* start server
+- `grunt`: run watch [tasks: pug, sass, autoprefixer, concat, uglify] and start BrowserSync local server
 
 
 ## License
