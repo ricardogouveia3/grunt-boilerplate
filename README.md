@@ -71,7 +71,7 @@ These structure will change during the project.
 - `grunt pug`: generates `index.html` from `index.pug` + `includes/*.pug`
 
 - `grunt compile`: run concat, uglify, sass, autoprefixer, imagemin, pug; does *not* start server
-- `grunt`: run watch [tasks: pug, sass, autoprefixer, concat, uglify] and start BrowserSync local server
+- `grunt`: run watch [tasks: pug, sass, concat] and start BrowserSync local server
 
 
 ## License
