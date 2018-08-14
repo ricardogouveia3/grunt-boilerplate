@@ -1,12 +1,7 @@
-<p align="center">
-  <img src="<-- LOGO -->" width="100">
-</p>
-
-# My Grunt Project Boilerplate
-
-[Access the website](<-- URL -->)
+# Grunt Project Boilerplate
 
 This project uses:
+
 - [Pug](https://pugjs.org/)
 - [Sass](http://sass-lang.com/)
 - [Grunt](https://gruntjs.com/)
@@ -24,8 +19,8 @@ First of all, install the dependencies to run this boilerplate.
 ```sh
 
 # Clone this repository
-git clone git@github.com:ricardogouveia3/<-- REPO -->
-cd <-- REPO -->
+git clone git@github.com:ricardogouveia3/grunt-boilerplate.git
+cd grunt-boilerplate
 
 # install dependencies
 npm install
@@ -38,25 +33,33 @@ After that, you should be good to go :)
 
 ```sh
 ├── assets/
-│   ├── css/
-│   │   └── *.sass
-│   ├── img/
+│   ├── sass/
+│   │   ├── partials/
+│   │   │   └── _*.sass
+│   │   └── style.sass
+│   │   └── variables.sass
+│   └── img/
+│       └── *.{jpg||png||svg}
+├── build/
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── style.min.css
+│   │   └── img/
+│   │       └── *.min.{jpg||png||svg}
 │   ├── js/
-│   │   ├── modules/
 │   │   └── index.min.js
-├── includes/
+│   ├── *.html
+│   └── favicon.ico
+├── js/
+│   └── *.js
+├── pug/
 │   └── *.pug
+├── .editorconfig
+├── .gitignore
 ├── Gruntfile.js
-├── index.pug
 ├── package.json
-├── README.md
+└── README.md
 ```
-These structure will change during the project.
-
-### Code Standarts
-
-<-- CODE STANDART -->
-
 
 ### Tasks
 
@@ -72,7 +75,6 @@ These structure will change during the project.
 
 - `grunt compile`: run concat, uglify, sass, autoprefixer, imagemin, pug; does *not* start server
 - `grunt`: run watch [tasks: pug, sass, concat] and start BrowserSync local server
-
 
 ## License
 

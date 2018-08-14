@@ -1,9 +1,8 @@
 {
-  "name": "grunt-project-boilerplate",
-  "version": "1.3.0",
-  "description": "Files and basic configuration for new projects using grunt, pug, and sass",
+  "name": "grunt-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for simple Gulp projects using Pug, Sass, and Browsersync",
   "url": "",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ricardogouveia3/grunt-project-boilerplate"
@@ -22,5 +21,6 @@
     "imagemin-optipng": "^5.2.1",
     "imagemin-svgo": "^6.0.0"
   },
-  "sasslintConfig": ".sass-lint.yml"
+  "author": "Ricardo Gouveia",
+  "license": "MIT"
 }
