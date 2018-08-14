@@ -11,45 +11,28 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     concat: {
-      options: {
-        separator: ';',
-      },
+      options: { separator: ';' },
       dist: {
-        src: ['assets/js/modules/*.js'],
-        dest: 'assets/js/index.min.js',
+        src: ['js/**/*.js'],
+        dest: 'build/js/index.min.js',
       },
     },
 
     uglify: {
-      options: {
-        mangle: false
-      },
-      my_target: {
-        files: {
-          'assets/js/index.min.js': ['assets/js/index.min.js']
-        }
-      }
+      my_target: { files: { 'build/js/index.min.js':'build/js/index.min.js'} }
     },
 
     sass: {
       build: {
-          options: {
-            style: 'compressed' //Seems to be the same as minified
-          },
-        files: {
-          'assets/css/style.css': 'assets/css/style.sass',
-        }
+        options: { style: 'compressed' },
+        files: { 'assets/css/style.min.css':'assets/sass/style.sass' }
       }
     },
 
     autoprefixer: {
       dist: {
-        options: {
-          map: true
-        },
-        files: {
-          'assets/css/style.css': 'assets/css/style.css',
-        }
+        options: { map: true },
+        files: { 'build/assets/css/style.min.css':'build/assets/css/style.min.css' }
       }
     },
 
@@ -64,30 +47,35 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'assets/img/',
           src: ['**/*.{png,jpg,gif,svg}'],
-          dest: 'assets/img/'
+          dest: 'build/assets/img/'
         }]
       }
     },
 
     pug: {
       compile: {
-        files: {
-          'index.html':'index.pug'
-        }
+        files: [{
+            expand: true,
+            cwd: 'pug/',
+            src: ['**/*.pug'],
+            dest: 'build/',
+            ext: '.html',
+            extDot: 'first'
+          }],
       },
     },
 
     watch: {
       pug: {
-        files: ['index.pug', 'includes/*.pug'],
+        files: ['pug/**/*.pug'],
         tasks: ['pug'],
       },
       sass: {
-        files: ['assets/css/style.sass', 'assets/css/_partials/*.sass'],
+        files: ['assets/sass/**/*.sass'],
         tasks: ['sass'],
       },
       concat: {
-        files: ['assets/js/modules/*.js'],
+        files: ['js/**/*.js'],
         tasks: ['concat'],
       },
     },
@@ -96,15 +84,15 @@ module.exports = function(grunt) {
       dev: {
         bsFiles: {
           src : [
-            'assets/css/style.css',
-            'assets/js/index.min.js',
-            'index.html'
+            'build/assets/css/style/min.css',
+            'build/js/index.min.js',
+            'build/index.html'
           ]
         },
         options: {
           watchTask: true,
           server: {
-            baseDir: "./"
+            baseDir: "build/"
           }
         }
       }
